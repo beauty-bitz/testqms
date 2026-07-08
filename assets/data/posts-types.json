@@ -1,0 +1,56 @@
+---
+layout: default
+title: Types of Testing
+category: Types of Testing
+---
+
+[
+  {
+    "title": "Functional Testing Know the Fundamentals in the SDLC",
+    "url": "/_posts/2025-05-17-Functional-Testing.md",
+    "thumb": "/assets/images/Types/Functional-Testing.png",
+    "label": "Types of Testing"
+  },
+  {
+    "title": "Testing Best Practices and Techniques",
+    "url": "/_posts/2025-05-22-testing-best-practices-techniques.md",
+    "thumb": "/assets/images/Types/software-testing-types.webp",
+    "label": "Types of Testing"
+  },
+  {
+    "title": "Regression Testing Know the Fundamentals in the STLC",
+    "url": "/_posts/2025-06-02-regression-testing-fundamentals.md",
+    "thumb": "/assets/images/Types/regression-testing.webp",
+    "label": "Types of Testing"
+  },
+  {
+    "title": "Positive Testing in the STLC Best How To Techniques",
+    "url": "/_posts/2025-06-04-positive-testing-techniques.md",
+    "thumb": "/assets/images/Types/positive-testing.webp",
+    "label": "Types of Testing"
+  },
+  {
+    "title": "Negative Testing How To Strategies",
+    "url": "/_posts/2025-06-11-negative-testing-how-to-strategies.md",
+    "thumb": "/assets/images/Types/Negative Testing.webp",
+    "label": "Types of Testing"
+  },
+  {
+    "title": "Black Box Testing in the STLC Best How To Techniques",
+    "url": "/_posts/2025-06-28-Black-Box-Testing-in-the-STLC-Best-How-To-Techniques.md",
+    "thumb": "/assets/images/Types/black-box-testing.webp",
+    "label": "Types of Testing"
+  },
+  {
+    "title": "Know the Fundamentals of Sanity Testing",
+    "url": "/_posts/2025-07-10-Know-the-Fundamentals-of-Sanity-Testing.md",
+    "thumb": "/assets/images/Types/Sanity-Testing.webp",
+    "label": "Types of Testing"
+  },
+  {
+    "title": "Smoke Testing Best How To Techniques",
+    "url": "/_posts/2025-08-08-smoke-testing-how-to-techniques.md",
+    "thumb": "/assets/images/Types/smoke-testing.webp",
+    "label": "Types of Testing"
+  }
+]

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    {% include head.html %}
+    <!-- The Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a27039bfd35c4c13be8e19254ba6f985"}'></script><!-- End Cloudflare Web Analytics -->
+
+    {% comment %}
+    Set your domain in _config.yml:
+    url: "https://qmstesting.com"
+    {% endcomment %}
+    
+    <!-- Canonical URL -->
+    {% if page.url %}
+      <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}" />
+    {% endif %}
+
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+
+    {% include meta.html %}
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="preload" as="image" href="/images/Logo-full-text1.webp" fetchpriority="high">  
+
+    <link rel="preload" href="{{ '/style.css' | relative_url }}?v={{ site.github.build_revision }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="{{ '/style.css' | relative_url }}?v={{ site.github.build_revision }}">
+    </noscript>
+    
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+
+    <!-- ✅ ADD FONT AWESOME HERE -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous">
+
+    <!-- VIEWPORT META TAG --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <!-- Add logo as site logo in browser searches  - start --> 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://qmstesting.com/",
+      "logo": "https://qmstesting.com/images/logo-bug.png"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/logo-bug.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="/images/logo-bug.webp">
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:url" content="https://qmstesting.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://qmstesting.com/images/logo-bug.webp">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ site.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="https://qmstesting.com/images/logo-bug.webp">
+
+    <!-- Add logo as site logo in browser searches  - end -->
+
+    {% if page.tags %}
+    <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+    {% endif %}
+
+    <!-- SILKTIDE SCRIPT - START --> 
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    <!-- 1. PERFORMANCE PRELOADS -->
+    <link rel="preload" href="/silktid/silktide-consent-manager.css" as="style">
+    <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-2XX8QBYYZ6" as="script">
+        
+    <!-- 2. CRITICAL CSS LOAD ORDER -->
+    <link rel="stylesheet" href="/silktid/silktide-consent-manager.css">
+        
+    <!-- 3. GOOGLE CONSENT MODE v2 + GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XX8QBYYZ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+
+      gtag('js', new Date());
+      gtag('config', 'G-2XX8QBYYZ6', { send_page_view: false });
+    </script>
+        
+    <!-- 4. PREVENT BANNER FLICKER -->
+    <script>
+      document.documentElement.classList.add('no-consent-banner');
+    </script>
+        
+    <!-- 5. REGION DETECTION + SILKTIDE CONFIG -->
+    <script>
+      function getCookie(name) {
+        const value = "; " + document.cookie;
+        const parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";")[0];
+        return null;
+      }
+        
+      function isRegulatedRegion(country) {
+        const eu = [
+          'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE',
+          'GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT',
+          'RO','SK','SI','ES','SE'
+        ];
+        const uk = ['GB'];
+        if (country === 'CA') return false;
+        if (country === 'US') return false;
+        return eu.includes(country) || uk.includes(country);
+      }
+        
+      window.silktideCookieBannerManagerConfig = {
+        autoInit: true,
+        preferencesButton: true,
+        cookieTypes: [
+          {
+            id: "necessary",
+            name: "Necessary cookies",
+            description: "Required for the website to function.",
+            required: true
+          },
+          {
+            id: "analytics",
+            name: "Analytics cookies",
+            description: "Help us understand how visitors use the site.",
+            defaultValue: false
+          },
+          {
+            id: "advertising",
+            name: "Advertising cookies",
+            description: "Used to show personalized or interest‑based ads.",
+            defaultValue: false
+          }
+        ]
+      };
+        
+      function updateConsent(consent = {}) {
+        const analyticsAllowed   = consent.analytics === true;
+        const advertisingAllowed = consent.advertising === true;
+        
+        gtag('consent', 'update', {
+          analytics_storage:   analyticsAllowed   ? 'granted' : 'denied',
+          ad_storage:          advertisingAllowed ? 'granted' : 'denied',
+          ad_user_data:        advertisingAllowed ? 'granted' : 'denied',
+          ad_personalization:  advertisingAllowed ? 'granted' : 'denied'
+        });
+        
+        if (analyticsAllowed) {
+          gtag('event', 'page_view', {
+            page_path: window.location.pathname
+          });
+        }
+      }
+    </script>
+        
+    <!-- 6. LOAD LOCAL SILKTIDE UI FILE -->
+    <script>
+      (function bootstrapConsent() {
+        let country = (getCookie('country') || 'XX').toUpperCase();
+        const regulated = isRegulatedRegion(country);
+        console.log('[CONSENT] Country:', country);
+        console.log('[CONSENT] Regulated:', regulated);
+        
+        if (regulated) {
+          document.documentElement.classList.remove('non-regulated');
+          const script = document.createElement('script');
+          script.src = '/silktid/silktide-consent-manager.js';
+          script.onload = function() {
+            document.documentElement.classList.remove('no-consent-banner');
+            document.addEventListener(
+              'silktideCookieBannerManager:consentChanged',
+              function(e) {
+                updateConsent(e.detail || {});
+              }
+            );
+          };
+          document.head.appendChild(script);
+        } else {
+          document.documentElement.classList.add('non-regulated');
+          document.documentElement.classList.remove('no-consent-banner');
+          updateConsent({
+            analytics:   true,
+            advertising: true
+          });
+        }
+      })();
+    </script>
+    <!-- SILKTIDE COOKIE BANNER - END-->
+
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <!-- Log Site Avatar -->  
+      <a href="https://qmstesting.com">
+        <img class="hero-logo" src="/images/Logo-full-text1.webp" alt="QMS Testing Site Avatar" fetchpriority="high">
+      </a>  
+
+     
+      <!-- HAMBURGER MENU HTML -->
+		<div id="hamburgerIcon" class="hamburger">
+		  &#9776;
+		</div>
+		
+		<!-- Fullscreen hamburger Mobile Menu -->
+		<div id="mobileMenu" class="mobile-menu">
+		  <div class="menu-header">
+		    <span class="close-icon">❌</span>
+		  </div>
+		
+		  <ul>
+		    <li><a href="{{ site.baseurl }}/">Home</a></li>
+		    <li><a href="{{ '/software-testing' | relative_url }}">Software Testing</a></li>
+		    <li><a href="{{ '/types-of-testing' | relative_url }}">Types of Testing</a></li>
+		    <li><a href="{{ '/automation' | relative_url }}">Automation</a></li>
+		    <li><a href="{{ '/azure-devops' | relative_url }}">Azure DevOps</a></li>
+		  </ul>
+		</div>
+
+
+      <!-- HAMBURGER MENU HTML - END -->
+    
+      <div class="wrapper-masthead">
+        <div class="container">
+          <header class="masthead clearfix">
+          
+            <div class="mobile-header-nav">
+              <div class="mobile-search">
+                <!-- Magnifying Glass Icon -->
+                <button id="mobile-search-toggle" aria-label="Search">
+                  🔍
+                </button>
+        
+                <!-- Search Form Container -->
+                <div id="mobile-search-form">
+                  <button id="mobile-search-close" aria-label="Close Search">❌</button>
+                  <form id="mobile-search-form-element">
+                    <input type="text" id="mobile-search-input" placeholder="Search..." />
+                    <button type="submit" id="mobile-submit-btn">🔍</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="header-top">
+              <div class="header-stack"> 
+                <a href="{{ site.baseurl }}/" class="site-avatar">
+                  <img src="{{ site.avatar }}" alt="{{ site.title }} avatar">
+                </a>
+    
+                <!-- QMS Testing Logo Link -->
+                <a class="title-img" href="{{ site.baseurl }}/">
+                  <img src="{{ '/images/TextLogoFinal.webp' | relative_url }}" alt="QM System Testing Logo">
+                </a>
+              </div>   
+            
+              <div class="site-info">
+                <h1 class="site-name">
+                  <a href="{{ site.baseurl }}/">
+                    <span class="highlight">{{ site.name | slice: 0, 3 }}</span><span class="rest">{{ site.name | slice: 3, 99 }}</span>
+                  </a>
+                </h1>
+                <p class="site-description">{{ site.description }}</p>
+              </div>
+            </div>
+
+            <!-- Full-width Nav Bar -->
+            <div class="desktop-header-nav">
+              <div class="nav-wrapper">
+                <nav class="nav-container">
+                  <div class="nav-links">
+                    <a href="{{ site.baseurl }}/">Home</a>
+                    <a href="{{ site.baseurl }}/software-testing">Software Testing</a>
+                    <a href="{{ site.baseurl }}/types-of-testing">Types of Testing</a>
+                    <a href="{{ site.baseurl }}/automation">Automation</a>
+                    <a href="{{ site.baseurl }}/azure-devops">Azure DevOps</a>
+                  </div>
+          
+                  <div class="nav-search">
+                    <button id="desktop-search-toggle" aria-label="Search">🔍</button>
+                    <div id="desktop-search-form">
+                      <button id="desktop-search-close" aria-label="Close Search">❌</button>
+                      <form id="desktop-search-form-element">
+                        <input type="text" id="desktop-search-input" placeholder="Search..." />
+                        <button type="submit" id="desktop-submit-btn">🔍</button>
+                      </form>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+
+          </header>
+        </div>
+      </div>
+
+      <div id="main" role="main" class="container">
+        {{ content }}
+
+        <!--Category Grid Home Page-->
+        {% if page.url == "/" or page.url == "/index.html" %}
+
+        <!--Welcome Message on Home Page-->
+        <h2 class="welcome-heding">Welcome to QMS Testing</h2>
+        <br/>
+        <p class="welcome-text">
+          Welcome to QMS Testing (Quality Management System Testing) — your go-to resource for software testing, test automation, and DevOps testing insights.
+        </p>
+       
+        <div class="CategoryContainer">
+          <div class="TestCat">
+            <a href="https://qmstesting.com/software-testing/">
+              <img 
+                src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,b_white/Software-Testing-Category_bocxnr.png"
+                srcset="
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_320,h_256,b_white/Software-Testing-Category_bocxnr.png 320w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,b_white/Software-Testing-Category_bocxnr.png 400w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_600,h_480,b_white/Software-Testing-Category_bocxnr.png 600w
+                "
+                sizes="(max-width: 780px) 320px, 250px"
+                width="250"
+                height="200"
+                alt="Software Testing Category"
+              />
+            </a>
+            <a class="text1" href="https://qmstesting.com/software-testing/">Software Testing</a>
+            <p style="font-size: 8px;">Image by macrovector on Freepik</p>
+          </div>
+
+          <div class="TypesCat">
+            <a href="https://qmstesting.com/types-of-testing/">
+              <img 
+                src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,b_white/Types-Testing-Category_nzudao.png"
+                srcset="
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_320,h_256,b_white/Types-Testing-Category_nzudao.png 320w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,b_white/Types-Testing-Category_nzudao.png 400w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_600,h_480,b_white/Types-Testing-Category_nzudao.png 600w
+                "
+                sizes="(max-width: 780px) 320px, 250px"
+                width="250"
+                height="200"
+                alt="Testing Types Category"
+              />
+            </a>
+            <a class="text1" href="https://qmstesting.com/types-of-testing">Types of Testing</a>
+            <p style="font-size: 8px;">Image by macrovector on Freepik</p>
+          </div>
+
+          <div class="AutoCat">
+            <a href="https://qmstesting.com/automation/">
+              <img 
+                src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,c_fill/Automation-Category_kplcza.png"
+                srcset="
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_320,h_256,c_fill/Automation-Category_kplcza.png 320w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,c_fill/Automation-Category_kplcza.png 400w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_600,h_480,c_fill/Automation-Category_kplcza.png 600w
+                "
+                sizes="(max-width: 780px) 320px, 250px"
+                width="250"
+                height="200"
+                alt="Automation Testing Category"
+              />
+            </a>
+            <a class="text1" href="https://qmstesting.com/automation">Automation</a>
+            <p style="font-size: 8px;">Image on Freepik</p>
+          </div>
+
+          <div class="DevOpsCat">
+            <a href="https://qmstesting.com/azure-devops/">
+              <img 
+                src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,c_fill/Azure-DevOps-Category_aca7db.png"
+                srcset="
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_320,h_256,c_fill/Azure-DevOps-Category_aca7db.png 320w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,c_fill/Azure-DevOps-Category_aca7db.png 400w,
+                  https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_600,h_480,c_fill/Azure-DevOps-Category_aca7db.png 600w
+                "
+                sizes="(max-width: 780px) 320px, 250px"
+                width="250"
+                height="200"
+                alt="Azure-DevOps Testing Category"
+              />
+            </a>
+            <a class="text1" href="https://qmstesting.com/azure-devops">Azure DevOps</a>
+            <p style="font-size: 8px;">Image on Freepik</p>
+          </div>
+        </div>
+
+        <!--Recent Posts-->    
+        <h2 class="recent-posts-heading">Recent Posts</h2>    
+        <div class="recent-post-grid">
+          {% for post in site.posts limit:4 %}
+          <div class="recent-post-card">
+            <a href="{{ post.url | relative_url }}">
+              <div class="recent-thumbnail">
+                <img 
+                  src="{{ post.image | replace: '/upload/', '/upload/f_auto,q_auto,c_fill,w_400,h_320/' }}"
+                  srcset="
+                    {{ post.image | replace: '/upload/', '/upload/f_auto,q_auto,c_fill,w_320,h_256/' }} 320w,
+                    {{ post.image | replace: '/upload/', '/upload/f_auto,q_auto,c_fill,w_400,h_320/' }} 400w,
+                    {{ post.image | replace: '/upload/', '/upload/f_auto,q_auto,c_fill,w_600,h_480/' }} 600w
+                  "
+                  sizes="(max-width: 780px) 320px, 250px"
+                  width="250"
+                  height="200"
+                  loading="lazy"
+                  alt="{{ post.title }}"
+                >
+              </div>
+              <h3 class="recent-post-title">{{ post.title }}</h3>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <!--ISTQB Certification text - START-->
+      {% unless page.hide_istqb_banner %}
+      <hr class="istqb-border">
+      <div class="istqb-hero">
+        <a href="/ISTQB-certification/">
+          <img src="{{ '/assets/images/Test/ISTQB.webp' | relative_url }}" alt="ISTQB Icon" class="istqb-logo">
+        </a>
+		  <p class="welcome-text">
+		  Read the <a href="/ISTQB-certification/">ISTQB Certification post to learn how!</a> post on how to kickstart your QA journey with confidence! 
+		  Check out this ISTQB exam prep book 
+		  <a href="https://amzn.to/4s5Jmj4">Software Testing: An ISTQB-BCS Certified Tester Foundation Level guide (CTFL v4.0)</a> 
+		  to build your core testing skills.
+		</p>
+         </div>
+      {% endunless %}
+      <!--ISTQB Certification text - END-->
+
+      <div class="wrapper-footer">
+        <div class="container">
+          <footer class="footer">
+            {% include svg-icons.html %}
+            <hr class="footer-top">
+          
+            <div class="footer-menu">
+              <nav class="footer-nav">
+                <ul>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/disclaimer">Disclaimer</a></li>
+                  <li><a href="/privacy">Privacy Policy</a></li>
+                  <li><a href="/terms-of-use">Terms of Use</a></li>
+                  <li><a href="/cookie-policy">Cookie Policy</a></li>
+                </ul>
+              </nav>
+            </div>
+            <br><br/>
+            <div class="amazon-attr">
+              <br>This site uses Amazon affiliate links, and I may earn a commission from qualifying purchases at no extra cost to you.</br>
+            </div>
+          </footer>
+        </div>
+      </div>
+ 
+      {% include footer.html %}
+
+      <!--HAMBURGER JAVASCRIPT FOR MOBILE-->
+      <script>
+        function toggleMenu() {
+          const menu = document.getElementById("mobileMenu");
+          const hamburger = document.getElementById("hamburgerIcon");
+          const searchBox = document.getElementById("mobile-search-toggle");
+
+          menu.classList.toggle("hidden");
+          hamburger.classList.toggle("hidden");
+
+          if (searchBox) {
+            searchBox.style.display = menu.classList.contains("hidden") ? "block" : "none";
+          }
+        }
+      </script>    
+      <!--HAMBURGER JAVASCRIPT FOR MOBILE-END-->       
+
+      <!-- SEARCH RESULTS JAVA - MOBILE -->
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileToggleBtn = document.getElementById("mobile-search-toggle");
+        const mobileFormContainer = document.getElementById("mobile-search-form");
+        const mobileCloseBtn = document.getElementById("mobile-search-close");
+        const mobileInput = document.getElementById("mobile-search-input");
+        const mobileForm = document.getElementById("mobile-search-form-element");
+
+        mobileToggleBtn.addEventListener("click", function () {
+          mobileFormContainer.style.display = "flex";
+          mobileToggleBtn.style.display = "none";
+          mobileInput.focus();
+        });
+
+        mobileCloseBtn.addEventListener("click", function () {
+          hideSearchForm();
+        });
+
+        mobileForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const query = mobileInput.value.trim();
+          if (!query) return;
+
+          hideSearchForm();
+          window.location.href = `/search-results/?q=${encodeURIComponent(query)}`;
+        });
+
+        function hideSearchForm() {
+          mobileFormContainer.style.display = "none";
+          mobileToggleBtn.style.display = "inline-block";
+          mobileInput.value = "";
+        }
+      });
+      </script>
+      <!-- SEARCH RESULTS JAVA - MOBILE-END -->
+    
+      <!-- SEARCH RESULTS JAVA - DESKTOP -->  
+      <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("desktop-search-toggle");
+        const formContainer = document.getElementById("desktop-search-form");
+        const closeBtn = document.getElementById("desktop-search-close");
+        const input = document.getElementById("desktop-search-input");
+        const form = document.getElementById("desktop-search-form-element");
+
+        toggleBtn.addEventListener("click", function () {
+          formContainer.style.display = "flex";
+          toggleBtn.style.display = "none";
+          input.focus();
+        });
+
+        closeBtn.addEventListener("click", function () {
+          hideSearchForm();
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const query = input.value.trim();
+          if (!query) return;
+          hideSearchForm();
+          window.location.href = `/search-results/?q=${encodeURIComponent(query)}`;
+        });
+
+        function hideSearchForm() {
+          formContainer.style.display = "none";
+          toggleBtn.style.display = "inline-block";
+          input.value = "";
+        }
+      });
+      </script>  
+      <!-- SEARCH RESULTS JAVA - DESKTOP-END -->   
+
+      <!-- Ensure Layout Links the Script for copy button in posts for script snippets -->            
+      <script src="{{ '/assets/js/copy-code.js' | relative_url }}"></script>
+
+      <!-- 100% privacy-first analytics -->
+      <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
+      <!-- Enable mermaid code for diagrams -->
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script>
+        mermaid.initialize({ startOnLoad: true });
+      </script>  
+
+      <script>
+        const deviceWidth = screen.width;
+        
+        // Desktop devices always have large physical screens
+        const isDesktop = deviceWidth > 1200;	
+        const isMobile = deviceWidth < 769;	
+        
+        // Objects
+        const mobileHeaderNav = document.querySelector('.mobile-header-nav');
+        const heroLogo = document.querySelector('img.hero-logo');
+        const istqbImage = document.querySelector('img.istqb-logo');
+        const istqbHero = document.querySelector('.istqb-hero');
+        const shareMenu = document.querySelector('.social-share');
+
+ 
+        
+        
+        
+        if (isDesktop) {
+          if (mobileHeaderNav) {
+             mobileHeaderNav.style.setProperty('display', 'none', 'important');  
+          }
+
+          if (heroLogo) {
+             heroLogo.style.setProperty('max-width', '450px', 'important'); 
+             heroLogo.style.setProperty('height', 'auto', 'important');
+             heroLogo.style.setProperty('border', 'none', 'important');
+             heroLogo.style.setProperty('display', 'block', 'important');
+             heroLogo.style.setProperty('margin', '0 auto', 'important');
+
+          }
+
+          img.istqb-logo {
+	          max-width: 450px;
+            border: 2px solid;
+            margin: 0 auto;
+          }
+
+          
+        } // Desktop end
+        
+        if (isMobile) {  
+        } // Mobile end
+        
+    </script>
+
+    </div>    
+
+	<!-- Function for mobile search form -->  
+    <script>
+	document.addEventListener("DOMContentLoaded", function () {
+	  const toggleBtn = document.getElementById("mobile-search-toggle");
+	  const closeBtn = document.getElementById("mobile-search-close");
+	  const formContainer = document.getElementById("mobile-search-form");
+	
+	  toggleBtn.addEventListener("click", () => {
+	    formContainer.classList.add("active");
+	  });
+	
+	  closeBtn.addEventListener("click", () => {
+	    formContainer.classList.remove("active");
+	  });
+	});
+	</script>
+	  
+    <!-- Function for hamburger menu -->  
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	  const hamburger = document.getElementById("hamburgerIcon");
+	  const menu = document.getElementById("mobileMenu");
+	  const closeIcon = document.querySelector(".close-icon");
+	
+	  hamburger.addEventListener("click", () => {
+	    menu.classList.add("active");
+	  });
+	
+	  closeIcon.addEventListener("click", () => {
+	    menu.classList.remove("active");
+	  });
+	});
+	</script>
+
+  
+	
+  
+
+	  
+  </body>
+</html>

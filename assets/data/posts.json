@@ -1,0 +1,50 @@
+---
+layout: default
+title: Software Testing
+category: Software Testing
+---
+
+[
+  {
+    "title": "Quality Control vs Quality Assurance: What is the Difference",
+    "url": "/_posts/2025-07-30-quality-assurance-quality-control.md",
+    "thumb": "/assets/images/Quality-Assurance.webp",
+    "label": "Software Testing"
+  },
+  {
+    "title": "Software Testing Life Cycle-Know The Best How To Techniques",
+    "url": "/_posts/2025-05-19-STLC.md",
+    "thumb": "/assets/images/Test/STLC.png",
+    "label": "Software Testing"
+  },
+  {
+    "title": "Know How To Elevate Your Testing Career with an ISTQB Certification",
+    "url": "/_posts/2025-05-26-ISTQB-certification.md",
+    "thumb": "/assets/images/Test/ISTQB.webp",
+    "label": "Software Testing"
+  },
+  {
+    "title": "Test Basis: Know How To Build Software Testing Success",
+    "url": "/_posts/2025-06-20-Test-Basis-Know-How-To-Build-Software-Testing-Success.md",
+    "thumb": "/assets/images/Test/Test-Basis.webp",
+    "label": "Software Testing"
+  },
+  {
+    "title": "7 Principles of Testing: Know How To Best Apply Them",
+    "url": "/_posts/2025-07-17-7-Principles-of-Testing.md",
+    "thumb": "/assets/images/Test/Principles-of-Testing.webp",
+    "label": "Software Testing"
+  },
+  {
+    "title": "Effective Test Case How to Techniques",
+    "url": "/_posts/2025-07-23-software-testing-write-effective-test-cases.md",
+    "thumb": "/assets/images/Test/software-testing-effective-test-cases.webp",
+    "label": "Software Testing"
+  },
+  {
+    "title": "12 Fail Proof Tips To Create Effective Test Plans",
+    "url": "/_posts/2025-06-03-12-Fail-Proof-Tips-To-Create-Effective-Test-Plans.md",
+    "thumb": "/assets/images/Test/Test-Plan.webp",
+    "label": "Software Testing"
+  }
+]

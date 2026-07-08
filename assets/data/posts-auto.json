@@ -1,0 +1,26 @@
+---
+layout: default
+title: Automation
+category: Automation
+---
+
+[
+  {
+    "title": "Know How To Harness The Power of AI Testing Tools",
+    "url": "/_posts/2025-05-17-power-of-automation-testing-tools.md",
+    "thumb": "/assets/images/Auto/automation-testing-tools.png",
+    "label": "Automation"
+  },
+  {
+    "title": "Powerful Automation Tools in the World of Regression Testing",
+    "url": "/_posts/2025-05-22-Powerful-Automation-AI-Tools.md",
+    "thumb": "/assets/images/Auto/Automation-AI-Tools.png",
+    "label": "Automation"
+  },
+  {
+    "title": "Setting Up IntelliJ IDEA for Selenium WebDriver and Preparing for Azure DevOps Pipelines",
+    "url": "/_posts/2025-08-12-set-up-intellij-idea-for-selenium-webdriver-azure-pipelines.md",
+    "thumb": "/assets/images/Auto/Intellij_Selenium.webp",
+    "label": "Automation"
+  }
+]

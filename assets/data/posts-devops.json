@@ -1,0 +1,26 @@
+---
+layout: default
+title: "Azure DevOps"
+category: "Azure DevOps"
+---
+
+[
+  {
+    "title": "Leverage Azure DevOps for Better Test Results",
+    "url": "/_posts/2025-05-17-devops-better-test-results.md",
+    "thumb": "/assets/images/DevOps/Azure-DevOps-Testing.png",
+    "label": "Azure DevOps"
+  },
+  {
+    "title": "Best DevOps Tools & Services To Build Powerful Pipelines",
+    "url": "/_posts/2025-05-22-azure-devops-tools.md",
+    "thumb": "/assets/images/DevOps/Azure-DevOps-Tools.png",
+    "label": "Azure DevOps"
+  },
+  {
+    "title": "Know How To Run Tests on an Azure Pipeline",
+    "url": "/_posts/2025-08-18-know-how-to-run-tests-in-an-azure-pipeline.md",
+    "thumb": "/assets/images/DevOps/DevOps/Azure-Pipeline-Build.webp",
+    "label": "Azure DevOps"
+  }
+]
