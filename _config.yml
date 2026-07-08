@@ -9,7 +9,7 @@
 description: "Welcome to QMSTesting (Quality Management System Testing) — your go-to resource for software testing, test automation, and DevOps testing insights."
 
 # Site 
-avatar: "/images/logo-bug.webp"
+avatar: "https://beauty-bitz.github.io/testqms/images/logo-bug.webp"
 
 #
 # Flags below are optional
@@ -43,7 +43,7 @@ google_fonts: 'Pacifico'
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "https://qmstesting.com"
+url: "https://beauty-bitz.github.io/testqms"
 
 # Plugins
 plugins:
@@ -63,7 +63,7 @@ baseurl: ""
 #
 
 # Site Logo
-#logo: "/images/logo-bug.webp"
+#logo: "https://beauty-bitz.github.io/testqms/images/logo-bug.webp"
 
 permalink: /:title/
 
