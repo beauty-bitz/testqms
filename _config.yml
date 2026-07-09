@@ -45,7 +45,7 @@ google_fonts: 'Pacifico'
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "https://github.com/camscom"
+url: "https://camscom.github.io"
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: "/testqms"
 
