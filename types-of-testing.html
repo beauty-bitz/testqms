@@ -17,7 +17,9 @@ permalink: /types-of-testing/
 <div id="related-posts-cat"></div>
 <div id="pagination" class="pagination"></div>
 
-{% assign software_posts = site.posts | where_exp: 'post', "post.categories contains 'Types' and post.categories contains 'of' and post.categories contains 'Testing'" %}
+{% assign software_posts = site.posts | where: "categories", "Types" %}
+{% assign software_posts = software_posts | where: "categories", "of" %}
+{% assign software_posts = software_posts | where: "categories", "Testing" %}
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
