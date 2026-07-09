@@ -11,7 +11,7 @@ theme: null
 description: "Welcome to QMSTesting (Quality Management System Testing) — your go-to resource for software testing, test automation, and DevOps testing insights."
 
 # Site 
-avatar: "https://beauty-bitz.github.io/testqms/images/logo-bug.webp"
+avatar: "https://github.com/camscom/testqms/images/logo-bug.webp"
 
 #
 # Flags below are optional
@@ -45,7 +45,7 @@ google_fonts: 'Pacifico'
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "https://beauty-bitz.github.io"
+url: "https://github.com/camscom"
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: "/testqms"
 
@@ -67,7 +67,7 @@ plugins:
 #
 
 # Site Logo
-#logo: "https://beauty-bitz.github.io/testqms/images/logo-bug.webp"
+#logo: "https://github.com/camscom/testqms/images/logo-bug.webp"
 
 permalink: /:title/
 
