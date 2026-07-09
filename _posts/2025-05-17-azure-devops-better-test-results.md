@@ -2,14 +2,14 @@
 layout: post
 title: "Leverage Azure DevOps for Better Test Results"
 categories: ["Azure DevOps"]
-image: https://beauty-bitz.github.io/testqms/assets/images/DevOps/Azure-DevOps-Testing.webp
+image: /images/DevOps/Azure-DevOps-Testing.webp
 permalink: /azure-devops-better-test-results/
 tags: [software testing, QA, QC, Azure DevOps, automation]
 description: "A guide on software testing automation using Azure DevOps."
 ---
 
 <figure>
-  <img src="https://beauty-bitz.github.io/testqms/assets/images/DevOps/Azure-DevOps-Testing.webp" alt="Azure DevOps Testing" />
+  <img src="/assets/images/DevOps/Azure-DevOps-Testing.webp" alt="Azure DevOps Testing" />
   <figcaption>Image by vectorjuice on Freepik</figcaption>
 </figure>
 
