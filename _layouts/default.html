@@ -327,7 +327,10 @@
       </div>
 
       <div id="main" role="main" class="container">
-        <base href="{{ site.baseurl }}/">
+        {% if page.image %}
+  		 <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+		{% endif %}
+
         {{ content }}
 
 
