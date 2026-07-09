@@ -1,1 +1,37 @@
 -
+---
+layout: default
+title: "Types of Testing"
+permalink: /types-of-testing/
+---
+
+<nav class="breadcrumbs">
+  <a href="/">🏠</a> &gt;
+  <span class="current">Types of Testing</span>
+</nav>
+
+<br/><br/>
+
+<h2 class="post-title" style="font-size: 40px; line-height: 34px; text-align: center;">Showing posts for:</h2>
+<h2 class="post-label" style="margin-top: 50px; font-size: 37px; line-height: 30px; text-align: center; margin-bottom: 50px;">Types of Testing</h2>
+
+{% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types of Testing"' %}
+
+<div id="related-posts-cat" style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center;">
+  {% for post in software_posts %}
+    <a href="{{ post.url | relative_url }}" style="width:380px; text-align:center; text-decoration:none;">
+      {% if post.image %}
+        <img
+          class="related-img"
+          src="{{ post.image | relative_url }}"
+          alt="{{ post.title }}"
+          loading="lazy"
+          style="width:380px; height:auto; border-radius:8px;"
+        />
+      {% endif %}
+      <div style="color:#000; font-size:18px; font-weight:bold; margin-top:10px;">
+        {{ post.title }}
+      </div>
+    </a>
+  {% endfor %}
+</div>
