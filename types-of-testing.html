@@ -17,6 +17,8 @@ permalink: /types-of-testing/
 <div id="related-posts-cat"></div>
 <div id="pagination" class="pagination"></div>
 
+{{ site.posts | map: "url" | jsonify }}
+
 {{ software_posts | size }}
 
 {% assign software_posts = site.posts | where_exp: 'post', 'post.url contains "/types-of-testing/"' %}
