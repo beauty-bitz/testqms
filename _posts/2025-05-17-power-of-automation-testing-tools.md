@@ -2,7 +2,7 @@
 layout: post
 title: "Know How To Harness The Power of AI Testing Tools"
 categories: ["Automation"]
-image: /assets/images/Auto/automation-testing-tools.webp
+image: "/assets/images/Auto/automation-testing-tools.webp"
 permalink: /power-of-automation-testing-tools/
 tags: [software testing, QA, QC, automation, testing tools, AI]
 description: "A guide on using AI testing tools to automate software testing."
