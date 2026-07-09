@@ -6,9 +6,6 @@ image: /assets/images/Auto/automation-testing-tools.webp
 permalink: /power-of-automation-testing-tools/
 tags: [software testing, QA, QC, automation, testing tools, AI]
 description: "A guide on using AI testing tools to automate software testing."
-redirect_from:
-  - /automation-testing-tools/
-  - /2025/05/17/automation-testing-tools/
 ---
 
 <figure>
