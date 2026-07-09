@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
   const query = params.get("q");
@@ -39,5 +38,5 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
-</script>
+
 
