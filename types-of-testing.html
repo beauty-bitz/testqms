@@ -19,9 +19,7 @@ permalink: /types-of-testing/
 
 {{ software_posts | size }}
 
-{% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types"' %}
-{% assign software_posts = software_posts | where_exp: 'post', 'post.categories contains "of"' %}
-{% assign software_posts = software_posts | where_exp: 'post', 'post.categories | join: " " | strip contains "Testing"' %}
+{% assign software_posts = site.posts | where_exp: 'post', 'post.url contains "/types-of-testing/"' %}
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
