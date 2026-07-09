@@ -6,9 +6,6 @@ image: https://beauty-bitz.github.io/testqms/assets/images/Types/Functional-Test
 permalink: /Functional_Testing_Fundamentals/
 tags: [software testing, QA, QC, functional testing]
 description: "A guide on software testing using functional testing, best practices and types of functional testing."
-redirect_from:
-  - /Functional_Testing/
-  - /2025/05/17/Functional_Testing/
 ---
 
 <figure>
