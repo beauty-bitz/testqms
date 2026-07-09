@@ -20,7 +20,13 @@ permalink: /types-of-testing/
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const posts = [
-    {% assign software_posts = site.posts | where_exp: "post", "post.categories contains 'Types of Testing'" %}
+    {% assign software_posts = site.posts | where_exp: "post", "
+      post.categories contains 'Types' and
+      post.categories contains 'of' and
+      post.categories contains 'Testing'
+    " %}
+
+    
     {% for post in software_posts %}
       {
         "title": {{ post.title | jsonify }},
