@@ -17,9 +17,10 @@ permalink: /types-of-testing/
 <div id="related-posts-cat"></div>
 <div id="pagination" class="pagination"></div>
 
+{% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types of Testing"' %}
+
 {{ software_posts | size }}
 
-{% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types of Testing"' %}
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
