@@ -16,9 +16,9 @@ permalink: /types-of-testing/
 
 {% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types of Testing"' %}
 
-<div id="related-posts-cat" class="TestCatGrid">
+<div id="related-posts-cat" style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center;">
   {% for post in software_posts %}
-    <a href="{{ post.url | relative_url }}" class="TestCatCard" style="display:block; text-align:center; margin-bottom:40px;">
+    <a href="{{ post.url | relative_url }}" style="width:380px; text-align:center; text-decoration:none;">
       {% if post.image %}
         <img
           class="related-img"
