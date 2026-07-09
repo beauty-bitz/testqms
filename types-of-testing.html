@@ -14,23 +14,100 @@ permalink: /types-of-testing/
 <h2 class="post-title" style="font-size: 40px; line-height: 34px; text-align: center;">Showing posts for:</h2>
 <h2 class="post-label" style="margin-top: 50px; font-size: 37px; line-height: 30px; text-align: center; margin-bottom: 50px;">Types of Testing</h2>
 
+<div id="related-posts-cat"></div>
+<div id="pagination" class="pagination"></div>
+
 {% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types of Testing"' %}
 
-<div id="related-posts-cat" style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center;">
-  {% for post in software_posts %}
-    <a href="{{ post.url | relative_url }}" style="width:380px; text-align:center; text-decoration:none;">
-      {% if post.image %}
-        <img
-          class="related-img"
-          src="{{ post.image | relative_url }}"
-          alt="{{ post.title }}"
-          loading="lazy"
-          style="width:380px; height:auto; border-radius:8px;"
-        />
-      {% endif %}
-      <div style="color:#000; font-size:18px; font-weight:bold; margin-top:10px;">
-        {{ post.title }}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const posts = [
+    {% for post in software_posts %}
+      {
+        "title": {{ post.title | jsonify }},
+        "url": "{{ post.url | relative_url }}",
+        "image": "{{ post.image | relative_url }}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  const resultsPerPage = 8; // 8 posts per page
+  let currentPage = 1;
+
+  function updateURL(page) {
+    const newParams = new URLSearchParams(window.location.search);
+    newParams.set("page", page);
+    window.history.replaceState({}, "", `${window.location.pathname}?${newParams}`);
+  }
+
+  function renderPage(page) {
+    const container = document.getElementById("related-posts-cat");
+    const start = (page - 1) * resultsPerPage;
+    const end = start + resultsPerPage;
+    const paginatedResults = posts.slice(start, end);
+
+    container.innerHTML = `
+      <div style="
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        justify-items: center;
+      ">
+        ${paginatedResults.map(post => `
+          <a href="${post.url}" style="text-decoration:none; text-align:center;">
+            <img 
+              src="${post.image}"
+              alt="${post.title}"
+              loading="lazy"
+              style="width:260px; height:auto; border-radius:8px;"
+            />
+            <div style="color:#000; font-size:18px; font-weight:bold; margin-top:10px;">
+              ${post.title}
+            </div>
+          </a>
+        `).join("")}
       </div>
-    </a>
-  {% endfor %}
-</div>
+    `;
+
+    renderPagination();
+    updateURL(page);
+  }
+
+  function renderPagination() {
+    const pagination = document.getElementById("pagination");
+    const totalPages = Math.ceil(posts.length / resultsPerPage);
+
+    let html = "";
+    if (currentPage > 1) html += `<button class="prev-btn">⬅ Previous</button>`;
+    html += `<span> Page ${currentPage} of ${totalPages} </span>`;
+    if (currentPage < totalPages) html += `<button class="next-btn">Next ➡</button>`;
+
+    pagination.innerHTML = html;
+
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        currentPage++;
+        renderPage(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        currentPage--;
+        renderPage(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  currentPage = parseInt(params.get("page")) || 1;
+  renderPage(currentPage);
+
+});
+</script>
