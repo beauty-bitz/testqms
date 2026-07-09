@@ -21,8 +21,7 @@ permalink: /types-of-testing/
 
 {% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types"' %}
 {% assign software_posts = software_posts | where_exp: 'post', 'post.categories contains "of"' %}
-{% assign software_posts = software_posts | where_exp: 'post', 'post.categories contains "Testing"' %}
-
+{% assign software_posts = software_posts | where_exp: 'post', 'post.categories | join: " " | strip contains "Testing"' %}
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
