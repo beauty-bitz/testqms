@@ -1274,7 +1274,7 @@ html, body {
   }
 
   /* Center images inside blog posts on desktop */
-  .post .entry img {
+  .post img {
     display: block;
     margin: 20px auto;
     max-width: 100%;
@@ -1524,7 +1524,7 @@ html, body {
     width: 100%;
   }
 
-  .post .entry img {
+  .post img {
     display: block;
     width: 100%;
     max-width: 350px;   /* adjust if you want smaller/larger */
@@ -1584,6 +1584,11 @@ table th {
   min-width: 600px;       /* allows scroll when table exceeds viewport */
   border-collapse: collapse;
 }
+
+/* Remove the image from the individual post caption block */
+.post .entry img {
+	display: none;
+}	
 
 
 
