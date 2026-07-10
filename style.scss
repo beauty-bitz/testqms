@@ -1590,6 +1590,36 @@ table th {
 	display: none;
 }	
 
+/* CATEGORY PAGE PAGINATION - START */
+.pagination-controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    margin:40px 0;
+}
+
+.pagination-controls button{
+    background:#bc960d;
+    color:#000;
+    border:none;
+    padding:10px 25px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.pagination-controls button:disabled{
+    opacity:.35;
+    cursor:not-allowed;
+}
+
+#pageInfo{
+    font-weight:bold;
+    font-size:18px;
+}
+/* CATEGORY PAGE PAGINATION - END */
+
 
 
 
