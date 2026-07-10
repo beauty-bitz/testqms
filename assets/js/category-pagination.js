@@ -1,4 +1,4 @@
-<script>
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const postsPerPage = 8;
@@ -52,4 +52,4 @@ document.addEventListener("DOMContentLoaded", function () {
     showPage(currentPage);
 
 });
-</script>
+
