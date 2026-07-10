@@ -16,6 +16,7 @@ permalink: /software-testing/
 
 {% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Software Testing"' %}
 
+
 <div id="postGrid" class="recent-post-grid">
   {% for post in software_posts %}
     <div class="recent-post-card">
