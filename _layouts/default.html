@@ -8,7 +8,7 @@
 
     {% comment %}
     Set your domain in _config.yml:
-    url: "https://camscom.github.io/testqms"
+    url: "{{ site.baseurl }}"
     {% endcomment %}
     
     <!-- Canonical URL -->
@@ -24,7 +24,7 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="preload" as="image" href="https://camscom.github.io/testqms/images/Logo-full-text1.webp" fetchpriority="high">  
+    <link rel="preload" as="image" href="{{ site.baseurl }}/images/Logo-full-text1.webp" fetchpriority="high">  
 
     <link rel="preload" href="{{ '/style.css' | relative_url }}?v={{ site.github.build_revision }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -53,21 +53,21 @@
     </script>
 
     <!-- Favicon -->
-    <link rel="icon" href="https://camscom.github.io/testqms/images/logo-bug.webp" type="image/webp">
-    <link rel="apple-touch-icon" href="https://camscom.github.io/testqms/images/logo-bug.webp">
+    <link rel="icon" href="{{ site.baseurl }}/images/logo-bug.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/images/logo-bug.webp">
 
     <!-- Open Graph for social sharing -->
     <meta property="og:title" content="{{ site.title }}">
     <meta property="og:description" content="{{ site.description }}">
-    <meta property="og:url" content="https://camscom.github.io/testqms">
+    <meta property="og:url" content="{{ site.baseurl }}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://camscom.github.io/testqms/images/logo-bug.webp">
+    <meta property="og:image" content="{{ site.baseurl }}/images/logo-bug.webp">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ site.title }}">
     <meta name="twitter:description" content="{{ site.description }}">
-    <meta name="twitter:image" content="https://camscom.github.io/testqms/images/logo-bug.webp">
+    <meta name="twitter:image" content="{{ site.baseurl }}/images/logo-bug.webp">
 
     <!-- Add logo as site logo in browser searches  - end -->
 
@@ -240,10 +240,10 @@
 		
 		  <ul>
 		    <li><a href="{{ site.baseurl }}/">Home</a></li>
-		    <li><a href="{{ 'https://camscom.github.io/testqms/software-testing' | relative_url }}">Software Testing</a></li>
-		    <li><a href="{{ 'https://camscom.github.io/testqms/types-of-testing' | relative_url }}">Types of Testing</a></li>
-		    <li><a href="{{ 'https://camscom.github.io/testqms/automation' | relative_url }}">Automation</a></li>
-		    <li><a href="{{ 'https://camscom.github.io/testqms/azure-devops' | relative_url }}">Azure DevOps</a></li>
+		    <li><a href="{{ '{{ site.baseurl }}/software-testing' | relative_url }}">Software Testing</a></li>
+		    <li><a href="{{ '{{ site.baseurl }}/types-of-testing' | relative_url }}">Types of Testing</a></li>
+		    <li><a href="{{ '{{ site.baseurl }}/automation' | relative_url }}">Automation</a></li>
+		    <li><a href="{{ '{{ site.baseurl }}/azure-devops' | relative_url }}">Azure DevOps</a></li>
 		  </ul>
 		</div>
 
@@ -280,7 +280,7 @@
     
                 <!-- QMS Testing Logo Link -->
                 <a class="title-img" href="{{ site.baseurl }}/">
-                  <img src="{{ 'https://camscom.github.io/testqms/images/TextLogoFinal.webp' | relative_url }}" alt="QM System Testing Logo">
+                  <img src="{{ '{{ site.baseurl }}/images/TextLogoFinal.webp' | relative_url }}" alt="QM System Testing Logo">
                 </a>
               </div>   
             
@@ -341,7 +341,7 @@
        
         <div class="CategoryContainer">
           <div class="TestCat">
-            <a href="https://camscom.github.io/testqms/software-testing/">
+            <a href="{{ site.baseurl }}/software-testing/">
               <img 
                 src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,b_white/Software-Testing-Category_bocxnr.png"
                 srcset="
@@ -355,12 +355,12 @@
                 alt="Software Testing Category"
               />
             </a>
-            <a class="text1" href="https://camscom.github.io/testqms/software-testing/">Software Testing</a>
+            <a class="text1" href="{{ site.baseurl }}/software-testing/">Software Testing</a>
             <p style="font-size: 8px;">Image by macrovector on Freepik</p>
           </div>
 
           <div class="TypesCat">
-            <a href="https://camscom.github.io/testqms/types-of-testing/">
+            <a href="{{ site.baseurl }}/types-of-testing/">
               <img 
                 src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,b_white/Types-Testing-Category_nzudao.png"
                 srcset="
@@ -374,12 +374,12 @@
                 alt="Testing Types Category"
               />
             </a>
-            <a class="text1" href="https://camscom.github.io/testqms/types-of-testing">Types of Testing</a>
+            <a class="text1" href="{{ site.baseurl }}/types-of-testing">Types of Testing</a>
             <p style="font-size: 8px;">Image by macrovector on Freepik</p>
           </div>
 
           <div class="AutoCat">
-            <a href="https://camscom.github.io/testqms/automation/">
+            <a href="{{ site.baseurl }}/automation/">
               <img 
                 src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,c_fill/Automation-Category_kplcza.png"
                 srcset="
@@ -393,12 +393,12 @@
                 alt="Automation Testing Category"
               />
             </a>
-            <a class="text1" href="https://camscom.github.io/testqms/automation">Automation</a>
+            <a class="text1" href="{{ site.baseurl }}/automation">Automation</a>
             <p style="font-size: 8px;">Image on Freepik</p>
           </div>
 
           <div class="DevOpsCat">
-            <a href="https://camscom.github.io/testqms/azure-devops/">
+            <a href="{{ site.baseurl }}/azure-devops/">
               <img 
                 src="https://res.cloudinary.com/dig9gupue/image/upload/f_auto,q_auto,c_pad,w_400,h_320,c_fill/Azure-DevOps-Category_aca7db.png"
                 srcset="
@@ -412,7 +412,7 @@
                 alt="Azure-DevOps Testing Category"
               />
             </a>
-            <a class="text1" href="https://camscom.github.io/testqms/azure-devops">Azure DevOps</a>
+            <a class="text1" href="{{ site.baseurl }}/azure-devops">Azure DevOps</a>
             <p style="font-size: 8px;">Image on Freepik</p>
           </div>
         </div>
@@ -450,11 +450,11 @@
       {% unless page.hide_istqb_banner %}
       <hr class="istqb-border">
       <div class="istqb-hero">
-        <a href="https://camscom.github.io/testqms/ISTQB-certification/">
-          <img src="{{ 'https://camscom.github.io/testqms/assets/images/Test/ISTQB.webp' | relative_url }}" alt="ISTQB Icon" class="istqb-logo">
+        <a href="{{ site.baseurl }}/ISTQB-certification/">
+          <img src="{{ '{{ site.baseurl }}/assets/images/Test/ISTQB.webp' | relative_url }}" alt="ISTQB Icon" class="istqb-logo">
         </a>
 		  <p class="welcome-text">
-		  Read the <a href="https://camscom.github.io/testqms/ISTQB-certification/">ISTQB Certification post to learn how!</a> post on how to kickstart your QA journey with confidence! 
+		  Read the <a href="{{ site.baseurl }}/ISTQB-certification/">ISTQB Certification post to learn how!</a> post on how to kickstart your QA journey with confidence! 
 		  Check out this ISTQB exam prep book 
 		  <a href="https://amzn.to/4s5Jmj4">Software Testing: An ISTQB-BCS Certified Tester Foundation Level guide (CTFL v4.0)</a> 
 		  to build your core testing skills.
@@ -472,12 +472,12 @@
             <div class="footer-menu">
               <nav class="footer-nav">
                 <ul>
-                  <li><a href="https://camscom.github.io/testqms/about">About</a></li>
-                  <li><a href="https://camscom.github.io/testqms/contact">Contact</a></li>
-                  <li><a href="https://camscom.github.io/testqms/disclaimer">Disclaimer</a></li>
-                  <li><a href="https://camscom.github.io/testqms/privacy">Privacy Policy</a></li>
-                  <li><a href="https://camscom.github.io/testqms/terms-of-use">Terms of Use</a></li>
-                  <li><a href="https://camscom.github.io/testqms/cookie-policy">Cookie Policy</a></li>
+                  <li><a href="{{ site.baseurl }}/about">About</a></li>
+                  <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
+                  <li><a href="{{ site.baseurl }}/disclaimer">Disclaimer</a></li>
+                  <li><a href="{{ site.baseurl }}/privacy">Privacy Policy</a></li>
+                  <li><a href="{{ site.baseurl }}/terms-of-use">Terms of Use</a></li>
+                  <li><a href="{{ site.baseurl }}/cookie-policy">Cookie Policy</a></li>
                 </ul>
               </nav>
             </div>
