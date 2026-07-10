@@ -36,7 +36,7 @@ layout: default
         {% if related.url != page.url and related.categories contains primary_category %}
           <div class="related-post">
             <a href="{{ related.url }}">
-              <img src="{{ baseurl }}/{{ related.image }}" alt="{{ related.title }}">
+              <img src="{{ site.baseurl }}/{{ related.image }}" alt="{{ related.title }}">
               <p>{{ related.title }}</p>
             </a>
           </div>
