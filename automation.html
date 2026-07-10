@@ -12,227 +12,40 @@ permalink: /automation/
 <br/><br/>
 
 <h2 class="post-title" style="font-size: 40px; line-height: 34px; text-align: center;">Showing posts for:</h2>
-<h2 class="post-label" style="margin-top: 50px; font-size: 37px; line-height: 20px; text-align: center; margin-bottom: 50px;">Automation</h2>
+<h2 class="post-label" style="margin-top: 50px; font-size: 37px; line-height: 30px; text-align: center; margin-bottom: 50px;">Types of Testing</h2>
 
-<div id="related-posts-cat"></div>
-<div id="pagination" class="pagination"></div>
+{% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Automation"' %}
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const posts = [
-    {% assign software_posts = site.posts | where_exp: "post", "post.categories contains 'Automation'" %}
-    {% for post in software_posts %}
-      {
-        "title": {{ post.title | jsonify }},
-        "url": "{{ post.url | relative_url }}",
-        "image": "{{ post.image | relative_url }}"
-      }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
+<div class="recent-post-grid">
+  {% for post in software_posts %}
+    <div class="recent-post-card">
+      <a href="{{ post.url | relative_url }}">
+        {% if post.image %}
+          <div class="recent-thumbnail">
+            <img
+              src="{{ post.image | relative_url }}"
+              alt="{{ post.title }}"
+              loading="lazy"
+            >
+          </div>
+        {% endif %}
 
-  const resultsPerPage = 8; // Change to how many per page
-  let currentPage = 1;
-
-  function updateURL(page) {
-    const newParams = new URLSearchParams(window.location.search);
-    newParams.set("page", page);
-    window.history.replaceState({}, "", `${window.location.pathname}?${newParams}`);
-  }
-
-  function renderPage(page) {
-    const container = document.getElementById("related-posts-cat");
-    const start = (page - 1) * resultsPerPage;
-    const end = start + resultsPerPage;
-    const paginatedResults = posts.slice(start, end);
-
-    container.innerHTML = paginatedResults.map(post => `
-      <a href="${post.url}" style="text-decoration: underline; text-align: center;">
-        <img 
-          class="related-img"
-          src="${post.image.replace('/upload/', '/upload/f_auto,q_auto,c_fill,w_400,h_320/')}"
-          srcset="
-            ${post.image.replace('/upload/', '/upload/f_auto,q_auto,c_fill,w_320,h_256/')} 380w,
-            ${post.image.replace('/upload/', '/upload/f_auto,q_auto,c_fill,w_400,h_320/')} 400w,
-            ${post.image.replace('/upload/', '/upload/f_auto,q_auto,c_fill,w_600,h_480/')} 600w
-          "
-          sizes="(max-width: 780px) 400px, 380px"
-          width="380px"
-          alt="${post.title}"
-          loading="lazy"
-        />
-        <div style="color: #000; font-size: 18px; font-weight: bold;">${post.title}</div>
+        <h3 class="recent-post-title">
+          {{ post.title }}
+        </h3>
       </a>
+    </div>
+  {% endfor %}
+</div>
 
-    `).join("");
+<div class="pagination-controls">
+    <button id="prevBtn">← Previous</button>
 
-    renderPagination();
-    updateURL(page);
-  }
+    <span id="pageInfo"></span>
 
-  function renderPagination() {
-    const pagination = document.getElementById("pagination");
-    const totalPages = Math.ceil(posts.length / resultsPerPage);
-
-    let html = "";
-    if (currentPage > 1) {
-      html += `<button class="prev-btn">⬅ Previous</button>`;
-    }
-    html += `<span> Page ${currentPage} of ${totalPages} </span>`;
-    if (currentPage < totalPages) {
-      html += `<button class="next-btn">Next ➡</button>`;
-    }
-
-    pagination.innerHTML = html;
-
-   if (document.querySelector(".next-btn")) {
-      document.querySelector(".next-btn").addEventListener("click", () => {
-        currentPage++;
-        renderPage(currentPage);
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }, 50); // slight delay fixes Firefox
-      });
-    }
-    if (document.querySelector(".prev-btn")) {
-      document.querySelector(".prev-btn").addEventListener("click", () => {
-        currentPage--;
-        renderPage(currentPage);
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }, 50);
-      });
-    }
-
-  }
-
-  // Load initial page (from ?page= if available)
-  const params = new URLSearchParams(window.location.search);
-  currentPage = parseInt(params.get("page")) || 1;
-  renderPage(currentPage);
-});
-</script>
-
-<style>
-#related-posts-cat {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
-  width: 1025px;
-  font-weight: 900;
-  flex-wrap: wrap;	
-  margin: 0 auto;
-}
-.related-img {
-  width: 250px;
-  height: 200px;
-  border-radius: 5px;
-  object-fit: cover;
-}
+    <button id="nextBtn">Next →</button>
+</div>
 
 
-
-/* Pagination styles */
-.pagination {
-  margin-top: 20px;
-  text-align: center;
-}
-.pagination button {
-  margin: 0 8px;
-  padding: 8px 16px;
-  border: none;
-  background: #bc960d; /* Button color */
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.pagination button:hover {
-  background: #bc960d; /* Hover color */
-}
-.pagination span {
-  font-size: 15px;
-  font-weight: 500;
-  margin: 0 12px;
-}
-
- #related-posts-cat a {
-    margin-bottom: 20px;
-  } 
-
-.TestCat img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  border-radius: 5px;
-  border: 2px solid;
-}
-  
-
-/* Mobile view */
-@media only screen and (max-width: 780px) {
-
-   .post-title {
-    margin-bottom: -40px;
-  } 
-  .post-label {
-    margin-top: 7px;
-  } 
-  
-  #related-posts-cat {
-    grid-template-columns: repeat(1, 1fr);
-    width: 360px;
-    margin: 0 auto;
-  }
-  .related-img {
-    width: 350px;
-    height: auto;
-    margin-top: 30px;
-  }
-
-
-}
-
-  @media only screen and (min-width: 820px) and (max-width: 2000px) {
-   .pagination {
-     margin-left: 0px;
-   } 
-  
-  .post-title {
-    margin: 0 auto;
-    margin-top: -40px;
-    margin-bottom: -40px;
-  } 
-  .post-label {
-    margin: 0 auto;
-    font-weight: 700px;
-    margin-top: -40px;
-  } 
-
-  .site-name {
-    margin-top:-10px;
-  }  
-
-   .breadcrumbs {
-     margin-top: -40px;
-   }
-
-  .TestCat img {
-    max-width: 350px;
-    height: auto;
-  }
 
  
-  
-  } / *End Desktop*/	
-
-  .related-img {
-    aspect-ratio: 5 / 4;
-    object-fit: cover;
-    height: auto;
-  }
-
-</style>
-
