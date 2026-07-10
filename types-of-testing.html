@@ -55,7 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const totalPages = Math.ceil(posts.length / postsPerPage);
 
-    let currentPage = 1;
+    const params = new URLSearchParams(window.location.search);
+
+    let currentPage = parseInt(params.get("page")) || 1;
 
     function showPage(page){
 
