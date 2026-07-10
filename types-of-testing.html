@@ -15,92 +15,136 @@ permalink: /types-of-testing/
 <h2 class="post-label" style="margin-top: 50px; font-size: 37px; line-height: 30px; text-align: center; margin-bottom: 50px;">Types of Testing</h2>
 
 {% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Types of Testing"' %}
-{% assign page_number = page.page_number | default: 1 %}
-{% assign per_page = 8 %}
-{% assign start_index = per_page | times: page_number | minus: per_page %}
-{% assign paginated_posts = software_posts | slice: start_index, per_page %}
 
-<section class="category-grid-section">
-  <div class="post-grid">
-    {% for post in paginated_posts %}
-      <a href="{{ post.url | relative_url }}" class="post-card">
-        {% if post.image %}
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" />
-        {% endif %}
-        <div class="post-title">{{ post.title }}</div>
-      </a>
-    {% endfor %}
-  </div>
-</section>
-
-<div class="pagination">
-  {% if page_number > 1 %}
-    <a href="?page={{ page_number | minus: 1 }}" class="prev-btn">⬅ Previous</a>
-  {% endif %}
-  <span>Page {{ page_number }} of {{ software_posts.size | divided_by: per_page | ceil }}</span>
-  {% if start_index + per_page < software_posts.size %}
-    <a href="?page={{ page_number | plus: 1 }}" class="next-btn">Next ➡</a>
-  {% endif %}
-</div>
+<div id="category-grid"></div>
+<div id="pagination" class="pagination"></div>
 
 <style>
-  body {
-   max-width: 1400px;
-   width: 100%; 
-  }  
-  /* ✅ Ensure parent section allows full-width grid */
-  .category-grid-section {
-    display: block;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  /* ✅ 2 rows × 4 columns grid */
-  .post-grid {
-    display: grid !important;
+  /* ⭐ EXACT SAME GRID BEHAVIOR AS HOMEPAGE */
+  #category-grid .grid {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     justify-items: center;
-    align-items: start;
-    margin-bottom: 40px;
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
   }
 
-  .post-card {
+  #category-grid a {
     text-decoration: none;
     text-align: center;
     width: 260px;
   }
 
-  .post-card img {
-    width: 560px;
+  #category-grid img {
+    width: 260px;
     height: auto;
     border-radius: 8px;
   }
 
-  .post-title {
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-
-  .pagination {
+  #pagination {
     text-align: center;
     margin-top: 40px;
   }
 
-  .pagination a {
+  #pagination button {
     background-color: #d4af37;
     color: #000;
+    border: none;
     padding: 10px 20px;
     margin: 0 10px;
     font-weight: bold;
+    cursor: pointer;
     border-radius: 6px;
-    text-decoration: none;
   }
 
-  .pagination a:hover {
+  #pagination button:hover {
     background-color: #b38e2e;
   }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ⭐ Build JS array of posts (same as homepage) */
+  const posts = [
+    {% for post in software_posts %}
+      {
+        "title": {{ post.title | jsonify }},
+        "url": "{{ post.url | relative_url }}",
+        "image": "{{ post.image | relative_url }}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  const resultsPerPage = 8;  // ⭐ 2 rows × 4 columns
+  let currentPage = 1;
+
+  function updateURL(page) {
+    const newParams = new URLSearchParams(window.location.search);
+    newParams.set("page", page);
+    window.history.replaceState({}, "", `${window.location.pathname}?${newParams}`);
+  }
+
+  function renderPage(page) {
+    const container = document.getElementById("category-grid");
+    const start = (page - 1) * resultsPerPage;
+    const end = start + resultsPerPage;
+    const paginatedResults = posts.slice(start, end);
+
+    container.innerHTML = `
+      <div class="grid">
+        ${paginatedResults.map(post => `
+          <a href="${post.url}">
+            <img src="${post.image}" alt="${post.title}" loading="lazy" />
+            <div style="color:#000; font-size:18px; font-weight:bold; margin-top:10px;">
+              ${post.title}
+            </div>
+          </a>
+        `).join("")}
+      </div>
+    `;
+
+    renderPagination();
+    updateURL(page);
+  }
+
+  function renderPagination() {
+    const pagination = document.getElementById("pagination");
+    const totalPages = Math.ceil(posts.length / resultsPerPage);
+
+    let html = "";
+    if (currentPage > 1) html += `<button class="prev-btn">⬅ Previous</button>`;
+    html += `<span> Page ${currentPage} of ${totalPages} </span>`;
+    if (currentPage < totalPages) html += `<button class="next-btn">Next ➡</button>`;
+
+    pagination.innerHTML = html;
+
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        currentPage++;
+        renderPage(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        currentPage--;
+        renderPage(currentPage);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  currentPage = parseInt(params.get("page")) || 1;
+  renderPage(currentPage);
+
+});
+</script>
+
