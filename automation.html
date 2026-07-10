@@ -16,7 +16,7 @@ permalink: /automation/
 
 {% assign software_posts = site.posts | where_exp: 'post', 'post.categories contains "Automation"' %}
 
-<div class="recent-post-grid">
+<div id="postGrid" class="recent-post-grid">
   {% for post in software_posts %}
     <div class="recent-post-card">
       <a href="{{ post.url | relative_url }}">
